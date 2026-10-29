@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b839ed8a-2c12-4378-9044-fdec552e44fa}</ProjectGuid>
+    <ProjectGuid>{d04953af-1001-4495-a59b-2a32ae144e82}</ProjectGuid>
     <RootNamespace>COS1Project</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,11 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SudokuBoard.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SudokuBoard.h" />
+    <ClCompile Include="COS-1 Project.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
