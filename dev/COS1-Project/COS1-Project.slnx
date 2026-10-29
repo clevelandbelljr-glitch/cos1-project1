@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="COS1-Project/COS1-Project.vcxproj" />
+  <Project Path="COS1-Project/COS1-Project.vcxproj" Id="b839ed8a-2c12-4378-9044-fdec552e44fa" />
 </Solution>
