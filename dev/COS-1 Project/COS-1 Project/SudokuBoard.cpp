@@ -22,3 +22,8 @@ int SudokuBoard::getCell(int row, int col)
 {
 	return grid[row][col];
 }
+
+void SudokuBoard::setCell(int row, int col, int number)
+{
+	grid[row][col] = number;
+}
