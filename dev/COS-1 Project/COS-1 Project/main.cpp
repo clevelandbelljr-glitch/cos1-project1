@@ -10,7 +10,7 @@ int main()
 
     board.setCell(0, 0, 5);
 
-    std::cout << "Is this move valid? " << checker.isValidMove(board, 0, 1, 5) << std::endl;
+    std::cout << "Is this move valid? " << checker.isValidMove(board, 0, 1, 3) << std::endl;
 
     board.displayBoard();
 
