@@ -17,3 +17,8 @@ void SudokuBoard::displayBoard()
 		std::cout << std::endl;
 	}
 }
+
+int SudokuBoard::getCell(int row, int col)
+{
+	return grid[row][col];
+}

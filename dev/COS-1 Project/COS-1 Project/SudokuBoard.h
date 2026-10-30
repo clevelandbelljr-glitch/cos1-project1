@@ -11,4 +11,5 @@ public:
 	
 	SudokuBoard();
 	void displayBoard();
+	int getCell(int row, int col);
 };
