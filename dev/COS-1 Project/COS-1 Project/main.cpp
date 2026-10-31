@@ -64,6 +64,11 @@ int main()
                 {
                     board.setCell(row, col, number);
                     std::cout << "Move accepted.\n";
+
+                    if (puzzle.isPuzzleCompleted(board))
+                    {
+                        std::cout << "YOU WON! YAAAAAYYY!!!!!\n";\
+                    }
                 }
 
                 else

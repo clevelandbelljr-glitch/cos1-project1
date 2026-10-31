@@ -11,4 +11,5 @@ private:
 public:
 	void createPuzzle(SudokuBoard& board);
 	bool isFixed(int row, int col);
+	bool isPuzzleCompleted(SudokuBoard& board);
 };
