@@ -55,7 +55,12 @@ int main()
                 row = row - 1;
                 col = col - 1;
 
-                if (checker.isValidMove(board, row, col, number))
+                if (puzzle.isFixed(row, col))
+                {
+                    std::cout << "You cannot change original number.\n";
+                }
+
+                else if (checker.isValidMove(board, row, col, number))
                 {
                     board.setCell(row, col, number);
                     std::cout << "Move accepted.\n";
