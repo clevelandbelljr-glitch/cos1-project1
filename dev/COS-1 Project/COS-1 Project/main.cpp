@@ -9,6 +9,10 @@ int main()
     SudokuChecker checker;
 
     int choice;
+    int row;
+    int col;
+    int number;
+
 
     do
     {
@@ -23,6 +27,32 @@ int main()
         if (choice == 1)
         {
             board.displayBoard();
+        }
+
+        else if (choice == 2)
+        {
+            std::cout << "Enter row (1-9): ";
+            std::cin >> row;
+
+            std::cout << "Enter col (1-9): ";
+            std::cin >> col;
+
+            std::cout << "Enter number (1-9): ";
+            std::cin >> number;
+
+            row = row - 1;
+            col = col - 1;
+
+            if (checker.isValidMove(board, row, col, number))
+            {
+                board.setCell(row, col, number);
+                std::cout << "Move accepted.\n";
+            }
+
+            else
+            {
+                std::cout << "Invalid move, try again.\n";
+            }
         }
 
         else if (choice == 4)
