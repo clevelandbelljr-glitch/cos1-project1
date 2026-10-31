@@ -8,19 +8,37 @@ int main()
 
     SudokuChecker checker;
 
-    board.setCell(0, 0, 5);
+    int choice;
 
-    board.setCell(1, 0, 5);
+    do
+    {
+        std::cout << "\n==== SUDOKU GAME ====\n";
+        std::cout << "1. Display Sudoku Board\n";
+        std::cout << "2. Enter a Number\n";
+        std::cout << "3. Check a Move\n";
+        std::cout << "4. Exit Game\n";
+        std::cout << "Please select and option: ";
+        std::cin >> choice;
 
-    board.setCell(1, 1, 5);
+        if (choice == 1)
+        {
+            board.displayBoard();
+        }
 
-    std::cout << "Is this move valid? " << checker.isValidMove(board, 0, 1, 3) << std::endl;
-    std::cout << "Column test: " << checker.isValidMove(board, 2, 0, 5) << std::endl;
-    std::cout << "3x3 box test: " << checker.isValidMove(board, 0,1, 5) << std::endl;
+        else if (choice == 4)
+        {
+            std::cout << "Thanks for playing.\n";
+        }
+
+        else
+        {
+            std::cout << "That option is not available. Please try again.\n";
+        }
+    }
+
+    while (choice != 4);
 
 
-    board.displayBoard();
-
-    
+    return 0;
 }
 
