@@ -24,12 +24,18 @@
     <ClCompile Include="SudokuChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SudokuPuzzle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SudokuBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SudokuChecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SudokuPuzzle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
