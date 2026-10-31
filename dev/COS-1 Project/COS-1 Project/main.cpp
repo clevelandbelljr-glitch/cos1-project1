@@ -24,9 +24,9 @@ int main()
         std::cout << "\n==== SUDOKU GAME ====\n";
         std::cout << "1. Display Sudoku Board\n";
         std::cout << "2. Enter a Number\n";
-        std::cout << "3. Check a Move\n";
+        std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Exit Game\n";
-        std::cout << "Please select and option: ";
+        std::cout << "Please select an option: ";
         std::cin >> choice;
 
         if (choice == 1)
@@ -65,9 +65,9 @@ int main()
                     board.setCell(row, col, number);
                     std::cout << "Move accepted.\n";
 
-                    if (puzzle.isPuzzleCompleted(board))
+                    if (checker.isBoardCompleted(board))
                     {
-                        std::cout << "YOU WON! YAAAAAYYY!!!!!\n";\
+                        std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
                     }
                 }
 
@@ -76,7 +76,19 @@ int main()
                     std::cout << "Invalid move, try again.\n";
                 }
             }
-                        
+        }
+
+        else if (choice == 3)
+        {
+            if (checker.isBoardCompleted(board))
+            {
+                std:: cout << "You solved the puzzle. Lets go!!!\n";
+            }
+
+            else
+            {
+                std::cout << "You are not done yet, keep going.\n";
+            }
         }
 
         else if (choice == 4)

@@ -6,4 +6,5 @@ class SudokuChecker
 {
 public:
 	bool isValidMove(SudokuBoard& board, int row, int col, int number);
+	bool isBoardCompleted(SudokuBoard& board);
 };
