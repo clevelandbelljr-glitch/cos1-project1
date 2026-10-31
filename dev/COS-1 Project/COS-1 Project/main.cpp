@@ -40,19 +40,28 @@ int main()
             std::cout << "Enter number (1-9): ";
             std::cin >> number;
 
-            row = row - 1;
-            col = col - 1;
-
-            if (checker.isValidMove(board, row, col, number))
+            if (row < 1 || row > 9 || col < 1 || col > 9 || number < 1 || number > 9)
             {
-                board.setCell(row, col, number);
-                std::cout << "Move accepted.\n";
+                std::cout << "Invalid entry. Rows, columns, and numbers must be 1-9.\n";
             }
 
             else
             {
-                std::cout << "Invalid move, try again.\n";
+                row = row - 1;
+                col = col - 1;
+
+                if (checker.isValidMove(board, row, col, number))
+                {
+                    board.setCell(row, col, number);
+                    std::cout << "Move accepted.\n";
+                }
+
+                else
+                {
+                    std::cout << "Invalid move, try again.\n";
+                }
             }
+                        
         }
 
         else if (choice == 4)
@@ -69,6 +78,6 @@ int main()
     while (choice != 4);
 
 
-    return 0;
+    return true;
 }
 
