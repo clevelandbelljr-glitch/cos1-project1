@@ -15,11 +15,19 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board)
 		{ 0,0,0,0,8,0,0,7,9 }
 	};
 
+	fixedCells = std::vector<std::vector<bool>>(9, std::vector<bool>(9, false));
+
 	for (int row = 0; row < 9; row++)
 	{
 		for (int col = 0; col < 9; col++)
 		{
 			board.setCell(row, col, puzzle[row][col]);
+			fixedCells[row][col] = (puzzle[row][col] != 0);
 		}
 	}
+}
+
+bool SudokuPuzzle::isFixed(int row, int col)
+{
+	return fixedCells[row][col];
 }

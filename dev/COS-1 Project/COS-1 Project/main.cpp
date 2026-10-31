@@ -1,12 +1,17 @@
 #include <iostream>
 #include "SudokuBoard.h"
 #include "SudokuChecker.h"
+#include "SudokuPuzzle.h"
 
 int main()
 {
     SudokuBoard board;
 
     SudokuChecker checker;
+
+    SudokuPuzzle puzzle;
+
+    puzzle.createPuzzle(board);
 
     int choice;
     int row;
