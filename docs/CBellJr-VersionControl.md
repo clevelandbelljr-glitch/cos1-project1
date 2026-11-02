@@ -80,7 +80,7 @@ Most repositories contain a .gitignore file.
 
 - What is the "**.DS_Store**" file and why would you want to ignore it?
   <br>
-  [Fill in answer here]
+  [A .DS_Store (Desktop Services Store) file is a hidden metadata file created automatically by macOS to save custom folder attributes and visual settings in Finder, such as icon positions, window sizes, and view options.  Tracking .DS_Store files in projects using Git causes unnecessary merge conflicts and adds clutter to pull requests. ]
 
 - What other file or folder would you want to add to a .gitignore file and why?
   <br>
