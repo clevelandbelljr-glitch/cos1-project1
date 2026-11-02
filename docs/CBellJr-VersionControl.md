@@ -84,8 +84,13 @@ Most repositories contain a .gitignore file.
 
 - What other file or folder would you want to add to a .gitignore file and why?
   <br>
-  [Fill in answer here]
+**`.env` (or `.env.local`)**
 
+- **Why:** It holds private API keys, database passwords, and secret tokens that should never be exposed in a public or shared repository
+
+.log (Log files)
+
+- **Why:** Runtime logs change constantly as you test your code. Tracking them creates massive, useless git history
 <br>
 
 # Reference Links
@@ -95,16 +100,16 @@ Replace the example references below with your own links and recommended resourc
 [ Research Summary: What resource(s) did you find most helpful this past week and why? ]
 
 **Terminal Commands**  
-[Site Address](https://www.someaddress.com/full/url/)
+[Site Address](https://stackoverflow.com/questions/11365850/run-c-in-command-prompt-windows
 
 **Three Types of Version Control**  
-[Site Address](https://www.someaddress.com/full/url/)
+[Site Address][(https://www.someaddress.com/full/url/)](https://www.geeksforgeeks.org/git/version-control-systems/)
 
 **Git Commands**  
-[Site Address](https://www.someaddress.com/full/url/)
+[[Site Address](https://git-scm.com/cheat-sheet)]
 
 **Connecting to GitHub using Terminal**  
-[Site Address](https://www.someaddress.com/full/url/)
+[Site Address][(https://www.someaddress.com/full/url/](https://happygitwithr.com/push-pull-github)
 
 **Using .gitignore and Why it's Important**  
-[Site Address](https://www.someaddress.com/full/url/)
+[Site Address][(https://www.someaddress.com/full/url/)](https://medium.com/@kirann.bobby/mastering-gitignore-what-it-is-and-why-it-matters-910b60808db4)
