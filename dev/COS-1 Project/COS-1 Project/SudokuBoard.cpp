@@ -9,13 +9,25 @@ void SudokuBoard::displayBoard()
 {
 	for (int row = 0; row < 9; row++)
 	{
-		for (int col = 0; col < 9; col++)
+		if (row % 3 == 0)
 		{
-			std::cout << grid[row][col] << " ";
+			std::cout << "+-------+-------+-------+\n";
 		}
 
-		std::cout << std::endl;
+		for (int col = 0; col < 9; col++)
+		{
+			if (col % 3 == 0)
+			{
+				std::cout << "| ";
+			}
+
+			std::cout << grid[row][col] << " ";
+		}		
+
+		std::cout << "|\n";
 	}
+
+	std::cout << "+-------+-------+-------+\n";
 }
 
 int SudokuBoard::getCell(int row, int col)
