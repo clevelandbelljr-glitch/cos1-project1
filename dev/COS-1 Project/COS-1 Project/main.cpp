@@ -13,6 +13,11 @@ int main()
     SudokuPuzzle puzzle;
 
     puzzle.createPuzzle(board);
+    
+    std::cout << "Welcome to Sudoku Game.\n";
+    std::cout << "Fill in the empty spaces using numbers 1 through 9.\n";
+    std::cout << "Each row, column, and 3x3 box must congtain numbers 1 through 9 without repeats.\n";
+    std::cout << "Orignal puzzle numbers cannot be changed.\n";
 
     int choice = 0;
     int row;
@@ -23,10 +28,11 @@ int main()
     do
     {
         std::cout << "\n==== SUDOKU GAME ====\n";
-        std::cout << "1. Display Sudoku Board\n";
-        std::cout << "2. Enter a Number\n";
+        std::cout << "1. View Sudoku Board\n";
+        std::cout << "2. Enter or change a Number\n";
         std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Exit Game\n";
+
         std::cout << "Please select an option: ";
         std::cin >> choice;
 
@@ -46,6 +52,7 @@ int main()
 
         else if (choice == 2)
         {
+            std::cout << "\nRemember: Use numbers 1-9. No repeats in any row, column or 3x3 box.\n";
             std::cout << "Enter row (1-9): ";
             std::cin >> row;
             
