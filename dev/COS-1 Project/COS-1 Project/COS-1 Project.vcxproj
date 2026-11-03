@@ -149,6 +149,9 @@
     <ClInclude Include="SudokuChecker.h" />
     <ClInclude Include="SudokuPuzzle.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="CHANGELOG.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
