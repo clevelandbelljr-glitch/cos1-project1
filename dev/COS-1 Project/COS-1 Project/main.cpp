@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "SudokuBoard.h"
 #include "SudokuChecker.h"
 #include "SudokuPuzzle.h"
@@ -13,7 +14,7 @@ int main()
 
     puzzle.createPuzzle(board);
 
-    int choice;
+    int choice = 0;
     int row;
     int col;
     int number;
@@ -29,6 +30,15 @@ int main()
         std::cout << "Please select an option: ";
         std::cin >> choice;
 
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            std::cout << "Invalid input. Please enter a number. \n";
+            continue;
+        }
+
         if (choice == 1)
         {
             board.displayBoard();
@@ -38,12 +48,39 @@ int main()
         {
             std::cout << "Enter row (1-9): ";
             std::cin >> row;
+            
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid row. Please enter a number. \n";
+                continue;
+            }
 
             std::cout << "Enter col (1-9): ";
             std::cin >> col;
 
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid column. Please enter a number. \n";
+                continue;
+            }
+
             std::cout << "Enter number (1-9): ";
             std::cin >> number;
+
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid number. Please enter a number. \n";
+                continue;
+            }
 
             if (row < 1 || row > 9 || col < 1 || col > 9 || number < 1 || number > 9)
             {
