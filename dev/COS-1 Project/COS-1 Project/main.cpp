@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "SudokuBoard.h"
 #include "SudokuChecker.h"
 #include "SudokuPuzzle.h"
@@ -12,8 +13,13 @@ int main()
     SudokuPuzzle puzzle;
 
     puzzle.createPuzzle(board);
+    
+    std::cout << "Welcome to Sudoku Game.\n";
+    std::cout << "Fill in the empty spaces using numbers 1 through 9.\n";
+    std::cout << "Each row, column, and 3x3 box must congtain numbers 1 through 9 without repeats.\n";
+    std::cout << "Orignal puzzle numbers cannot be changed.\n";
 
-    int choice;
+    int choice = 0;
     int row;
     int col;
     int number;
@@ -22,12 +28,22 @@ int main()
     do
     {
         std::cout << "\n==== SUDOKU GAME ====\n";
-        std::cout << "1. Display Sudoku Board\n";
-        std::cout << "2. Enter a Number\n";
+        std::cout << "1. View Sudoku Board\n";
+        std::cout << "2. Enter or change a Number\n";
         std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Exit Game\n";
+
         std::cout << "Please select an option: ";
         std::cin >> choice;
+
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            std::cout << "Invalid input. Please enter a number. \n";
+            continue;
+        }
 
         if (choice == 1)
         {
@@ -36,14 +52,42 @@ int main()
 
         else if (choice == 2)
         {
+            std::cout << "\nRemember: Use numbers 1-9. No repeats in any row, column or 3x3 box.\n";
             std::cout << "Enter row (1-9): ";
             std::cin >> row;
+            
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid row. Please enter a number. \n";
+                continue;
+            }
 
             std::cout << "Enter col (1-9): ";
             std::cin >> col;
 
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid column. Please enter a number. \n";
+                continue;
+            }
+
             std::cout << "Enter number (1-9): ";
             std::cin >> number;
+
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cout << "Invalid number. Please enter a number. \n";
+                continue;
+            }
 
             if (row < 1 || row > 9 || col < 1 || col > 9 || number < 1 || number > 9)
             {
