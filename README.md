@@ -38,7 +38,14 @@ My next goal is to improve input validation so the game can handle mistakes like
 
 ### Week 2
 
-My next stand up will go here...
+
+Overview: This week I focused on improving my Sudoku game by making the board easier to read, allowing players to correct their own entries, and improving input validation. I also updated the menu and instructions and completed my project changelog, design document, and testing screenshots.
+
+Challenges: One challenge was figuring out how to let players change their own numbers without allowing them to change the original puzzle numbers. I also had to work through input errors and test different situations to make sure everything worked correctly.
+
+Accomplishments: I'm proud that I was able to make these improvements, test them successfully, and push my updates to GitHub. I'm also getting more comfortable organizing my code into separate classes and understanding how they work together.
+
+Next Steps: Before Week 3, I want to finish organizing my planning documents and GitHub issues. My next development goals are to work on a hint system, an option to erase player entries, and eventually save and load functionality. I still have a lot to learn, but I'm happy with the progress I've made so far.
 
 ### Week 3
 
