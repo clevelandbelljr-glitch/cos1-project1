@@ -1,5 +1,5 @@
 #include "SudokuPuzzle.h"
-
+#include <cstdlib>
 void SudokuPuzzle::createPuzzle(SudokuBoard& board)
 {
 	int puzzle[9][9] =
@@ -15,14 +15,37 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board)
 		{ 0,0,0,0,8,0,0,7,9 }
 	};
 
+	int puzzle2[9][9] =
+	{
+		{ 0,2,0,6,0,8,0,0,0 },
+		{ 5,8,0,0,0,9,7,0,0 },
+		{ 0,0,0,0,4,0,0,0,0 },
+		{ 3,7,0,0,0,0,5,0,0 },
+		{ 6,0,0,0,0,0,0,0,4 },
+		{ 0,0,8,0,0,0,0,1,3 },
+		{ 0,0,0,0,2,0,0,0,0 },
+		{ 0,0,9,8,0,0,0,3,6 },
+		{ 0,0,0,3,0,6,0,9,0 }
+	};
+
+	int puzzleChoice = rand() % 2;
+
 	fixedCells = std::vector<std::vector<bool>>(9, std::vector<bool>(9, false));
 
 	for (int row = 0; row < 9; row++)
 	{
 		for (int col = 0; col < 9; col++)
 		{
-			board.setCell(row, col, puzzle[row][col]);
-			fixedCells[row][col] = (puzzle[row][col] != 0);
+			if (puzzleChoice == 0)
+			{
+				board.setCell(row, col, puzzle[row][col]);
+				fixedCells[row][col] = (puzzle[row][col] != 0);
+			}
+			else
+			{
+				board.setCell(row, col, puzzle2[row][col]);
+				fixedCells[row][col] = (puzzle2[row][col] != 0);
+			}
 		}
 	}
 }
