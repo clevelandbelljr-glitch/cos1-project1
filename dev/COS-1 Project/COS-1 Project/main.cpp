@@ -47,7 +47,7 @@ int main()
 
     int choice = 0;
     int row;
-    int col;
+    int column;
     int number;
 
 
@@ -59,8 +59,7 @@ int main()
         std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Exit Game\n";
 
-        std::cout << "Please select an option: ";
-        std::cin >> choice;
+        choice = getIntegerInput("Please select an option: ");
 
         if (std::cin.fail())
         {
@@ -79,43 +78,37 @@ int main()
         else if (choice == 2)
         {
             std::cout << "\nRemember: Use numbers 1-9. No repeats in any row, column or 3x3 box.\n";
-            std::cout << "Enter row (1-9): ";
-            std::cin >> row;
+           
+            row = getIntegerInput("Enter row (1-9): ");
             
-            if (std::cin.fail())
+            while (row < 1 || row > 9)
             {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Invalid row. Please enter a number 1-9.\n";
+                row = getIntegerInput("Enter row (1-9): ");
+            }
+            
+            column = getIntegerInput("Enter column (1-9): ");
 
-                std::cout << "Invalid row. Please enter a number. \n";
-                continue;
+            while (column < 1 || column > 9)
+            {
+                std::cout << "Invalid column. Please enter a number 1-9.\n";
+                column = getIntegerInput("Enter column (1-9): ");
             }
 
-            std::cout << "Enter col (1-9): ";
-            std::cin >> col;
-
-            if (std::cin.fail())
+            do
             {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                number = getIntegerInput("Enter number (1-9): ");
 
-                std::cout << "Invalid column. Please enter a number. \n";
-                continue;
+                while (number < 1 || number > 9)
+                {
+                    std::cout << "Invalid number. Please enter a number 1-9.\n";
+                    number = getIntegerInput("Enter number (1-9): ");
+                }
             }
 
-            std::cout << "Enter number (1-9): ";
-            std::cin >> number;
+            while (number < 1 || number>9);            
 
-            if (std::cin.fail())
-            {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-                std::cout << "Invalid number. Please enter a number. \n";
-                continue;
-            }
-
-            if (row < 1 || row > 9 || col < 1 || col > 9 || number < 1 || number > 9)
+            if (row < 1 || row > 9 || column < 1 || column > 9 || number < 1 || number > 9)
             {
                 std::cout << "Invalid entry. Rows, columns, and numbers must be 1-9.\n";
             }
@@ -123,28 +116,33 @@ int main()
             else
             {
                 row = row - 1;
-                col = col - 1;
+                column = column - 1;
 
-                if (puzzle.isFixed(row, col))
+                if (puzzle.isFixed(row, column))
                 {
                     std::cout << "You cannot change original number.\n";
                 }
 
-                else if (checker.isValidMove(board, row, col, number))
+                while (!checker.isValidMove(board, row, column, number))
                 {
-                    board.setCell(row, col, number);
-                    std::cout << "Move accepted.\n";
+                    std::cout << "Invalid move. Try another number.\n";
+                    number = getIntegerInput("Enter number 1-9:");
 
-                    if (checker.isBoardCompleted(board))
+                    while (number < 1 || number > 9)
                     {
-                        std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
+                        std::cout << "Invalid number. Please enter a number from 1-9.\n";
+                        number = getIntegerInput("Enter number 1-9");
                     }
                 }
 
-                else
+                board.setCell(row, column, number);
+                std::cout << "Move accepted.\n";
+
+                if (checker.isBoardCompleted(board))
                 {
-                    std::cout << "Invalid move, try again.\n";
+                   std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
                 }
+                               
             }
         }
 
