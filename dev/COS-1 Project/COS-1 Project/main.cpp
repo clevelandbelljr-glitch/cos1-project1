@@ -2,6 +2,8 @@
 #include <limits>
 #include <string>
 #include <stdexcept>
+#include <ctime>
+#include <cstdlib>
 #include "SudokuBoard.h"
 #include "SudokuChecker.h"
 #include "SudokuPuzzle.h"
@@ -32,6 +34,8 @@ int getIntegerInput(std::string prompt)
 
 int main()
 {
+    srand(static_cast<unsigned int>(time(0)));
+
     SudokuBoard board;
 
     SudokuChecker checker;

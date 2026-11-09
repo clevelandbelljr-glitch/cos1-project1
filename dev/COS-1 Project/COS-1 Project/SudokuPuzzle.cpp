@@ -1,5 +1,6 @@
 #include "SudokuPuzzle.h"
 #include <cstdlib>
+
 void SudokuPuzzle::createPuzzle(SudokuBoard& board)
 {
 	int puzzle[9][9] =
