@@ -57,7 +57,8 @@ int main()
         std::cout << "1. View Sudoku Board\n";
         std::cout << "2. Enter or change a Number\n";
         std::cout << "3. Check Puzzle Status\n";
-        std::cout << "4. Exit Game\n";
+        std::cout << "4. Reset Puzle\n";
+        std::cout << "5. Exit Game\n";
 
         choice = getIntegerInput("Please select an option: ");
 
@@ -161,6 +162,12 @@ int main()
 
         else if (choice == 4)
         {
+            puzzle.createPuzzle(board);
+            std::cout << "Puzzle has been reset.\n";
+        }
+
+        else if (choice == 5)
+        {
             std::cout << "Thanks for playing.\n";
         }
 
@@ -170,7 +177,7 @@ int main()
         }
     }
 
-    while (choice != 4);
+    while (choice != 5);
 
 
     return 0;
