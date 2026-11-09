@@ -1,8 +1,34 @@
 #include <iostream>
 #include <limits>
+#include <string>
+#include <stdexcept>
 #include "SudokuBoard.h"
 #include "SudokuChecker.h"
 #include "SudokuPuzzle.h"
+
+int getIntegerInput(std::string prompt)
+{
+    std::string input;
+    int number;
+
+    while (true)
+    {
+        std::cout << prompt;
+        std::getline(std::cin, input);
+
+        try
+        {
+            number = std::stoi(input);
+            return number;
+        }
+
+        catch (const std::invalid_argument&)
+        {
+            std::cout << "Invalid input. Please enter a number.\n";
+        }
+    }
+}
+
 
 int main()
 {
@@ -149,6 +175,6 @@ int main()
     while (choice != 4);
 
 
-    return true;
+    return 0;
 }
 
