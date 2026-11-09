@@ -64,7 +64,8 @@ int main()
         std::cout << "2. Enter or change a Number\n";
         std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Reset Puzzle\n";
-        std::cout << "5. Exit Game\n";
+        std::cout << "5. Help / Instructions\n";
+        std::cout << "6. Exit Game\n";
 
         choice = getIntegerInput("Please select an option: ");
 
@@ -180,8 +181,21 @@ int main()
             puzzle.createPuzzle(board, puzzleChoice);
             std::cout << "Puzzle has been reset.\n";
         }
-
+        
         else if (choice == 5)
+        {
+            std::cout << "\n==== SUDOKU HELP ====\n";
+            std::cout << "1. Fill empty spaces using numbers 1-9.\n";
+            std::cout << "2. Do not repeat any numbers in any row.\n";
+            std::cout << "3. Do not repeat any numbers in any column.\n";
+            std::cout << "4. Do not repeat any numbers in any 3x3 box.\n";
+            std::cout << "5. Original puzzle numbers cannot be changed.\n";
+            std::cout << "6. Enter 0 to erase your own entry.\n";
+            std::cout << "7. Use the Checker Assistant to check your moves.\n";
+            std::cout << "8. Select Reset Puzzle to start over.\n";
+        }
+        
+        else if (choice == 6)
         {
             std::cout << "Thanks for playing.\n";
         }
@@ -192,7 +206,7 @@ int main()
         }
     }
 
-    while (choice != 5);
+    while (choice != 6);
 
 
     return 0;
