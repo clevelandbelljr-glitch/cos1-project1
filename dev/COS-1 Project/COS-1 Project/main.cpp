@@ -42,12 +42,14 @@ int main()
 
     SudokuPuzzle puzzle;
 
-    puzzle.createPuzzle(board);
+    int puzzleChoice = rand() % 2;
+    puzzle.createPuzzle(board, puzzleChoice);
     
     std::cout << "Welcome to Sudoku Game.\n";
-    std::cout << "Fill in the empty spaces using numbers 1 through 9.\n";
-    std::cout << "Each row, column, and 3x3 box must congtain numbers 1 through 9 without repeats.\n";
-    std::cout << "Orignal puzzle numbers cannot be changed.\n";
+    std::cout << "Fill in the empty spaces using numbers 0 through 9.\n";
+    std::cout << "Enter 0 to erase a number you have placed.\n";
+    std::cout << "Each row, column, and 3x3 box must contain numbers 1 through 9 without repeats.\n";
+    std::cout << "Original puzzle numbers cannot be changed.\n";
 
     int choice = 0;
     int row;
@@ -61,7 +63,7 @@ int main()
         std::cout << "1. View Sudoku Board\n";
         std::cout << "2. Enter or change a Number\n";
         std::cout << "3. Check Puzzle Status\n";
-        std::cout << "4. Reset Puzle\n";
+        std::cout << "4. Reset Puzzle\n";
         std::cout << "5. Exit Game\n";
 
         choice = getIntegerInput("Please select an option: ");
@@ -83,6 +85,7 @@ int main()
         else if (choice == 2)
         {
             std::cout << "\nRemember: Use numbers 1-9. No repeats in any row, column or 3x3 box.\n";
+            std::cout << "Enter 0 to erase a number you have placed.\n\n";
            
             row = getIntegerInput("Enter row (1-9): ");
             
@@ -102,20 +105,20 @@ int main()
 
             do
             {
-                number = getIntegerInput("Enter number (1-9): ");
+                number = getIntegerInput("Enter number (0-9, 0 to erase): ");
 
-                while (number < 1 || number > 9)
+                while (number < 0 || number > 9)
                 {
-                    std::cout << "Invalid number. Please enter a number 1-9.\n";
-                    number = getIntegerInput("Enter number (1-9): ");
+                    std::cout << "Invalid number. Please enter a number 0-9.\n";
+                    number = getIntegerInput("Enter number (0-9): ");
                 }
             }
 
-            while (number < 1 || number>9);            
+            while (number < 0 || number>9);            
 
-            if (row < 1 || row > 9 || column < 1 || column > 9 || number < 1 || number > 9)
+            if (row < 1 || row > 9 || column < 1 || column > 9 || number < 0 || number > 9)
             {
-                std::cout << "Invalid entry. Rows, columns, and numbers must be 1-9.\n";
+                std::cout << "Invalid entry. Rows, columns, and numbers must be 0-9.\n";
             }
 
             else
@@ -127,27 +130,35 @@ int main()
                 {
                     std::cout << "You cannot change original number.\n";
                 }
-
-                while (!checker.isValidMove(board, row, column, number))
+                
+                else 
                 {
-                    std::cout << "Invalid move. Try another number.\n";
-                    number = getIntegerInput("Enter number 1-9:");
-
-                    while (number < 1 || number > 9)
+                    if (number == 0)
                     {
-                        std::cout << "Invalid number. Please enter a number from 1-9.\n";
-                        number = getIntegerInput("Enter number 1-9");
+                        board.setCell(row, column, number);
+                        std::cout << "Your number has been erased.\n";
                     }
-                }
 
-                board.setCell(row, column, number);
-                std::cout << "Move accepted.\n";
+                    else
+                    {
+                        board.setCell(row, column, number);
 
-                if (checker.isBoardCompleted(board))
-                {
-                   std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
-                }
-                               
+                        if (checker.isValidMove(board, row, column, number))
+                        {
+                            std::cout << "Move accepted. No conflicts found.\n";
+                        }
+
+                        else
+                        {
+                            std::cout << "The Checker Assistant found a conflict.\n";
+                        }
+                    }
+                    
+                    if (puzzle.isPuzzleCompleted(board, checker))
+                    {
+                        std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
+                    }
+                }                                              
             }
         }
 
@@ -166,7 +177,7 @@ int main()
 
         else if (choice == 4)
         {
-            puzzle.createPuzzle(board);
+            puzzle.createPuzzle(board, puzzleChoice);
             std::cout << "Puzzle has been reset.\n";
         }
 

@@ -1,7 +1,7 @@
 #include "SudokuPuzzle.h"
 #include <cstdlib>
 
-void SudokuPuzzle::createPuzzle(SudokuBoard& board)
+void SudokuPuzzle::createPuzzle(SudokuBoard& board, int puzzleChoice)
 {
 	int puzzle[9][9] =
 	{
@@ -29,8 +29,6 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board)
 		{ 0,0,0,3,0,6,0,9,0 }
 	};
 
-	int puzzleChoice = rand() % 2;
-
 	fixedCells = std::vector<std::vector<bool>>(9, std::vector<bool>(9, false));
 
 	for (int row = 0; row < 9; row++)
@@ -56,18 +54,7 @@ bool SudokuPuzzle::isFixed(int row, int col)
 	return fixedCells[row][col];
 }
 
-bool SudokuPuzzle::isPuzzleCompleted(SudokuBoard& board)
+bool SudokuPuzzle::isPuzzleCompleted(SudokuBoard& board, SudokuChecker& checker)
 {
-	for (int row = 0; row < 9; row++)
-	{
-		for (int col = 0; col < 9; col++)
-		{
-			if (board.getCell(row, col) == 0)
-			{
-				return false;
-			}
-		}
-	}
-	
-	return true;
+	return checker.isBoardCompleted(board);
 }
