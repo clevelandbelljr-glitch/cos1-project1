@@ -19,13 +19,28 @@ int getIntegerInput(std::string prompt)
 
         try
         {
-            number = std::stoi(input);
-            return number;
+            size_t position = 0;
+            number = std::stoi(input, &position);
+
+            if (position == input.length())
+            {
+                return number;
+            }
+
+            else
+            {
+                std::cout << "Invalid input. Please enter a number.\n";
+            }
         }
 
         catch (const std::invalid_argument&)
         {
             std::cout << "Invalid input. Please enter a number.\n";
+        }
+
+        catch (const std::out_of_range&)
+        {
+            std::cout << "Number is to large. Please try again.\n";
         }
     }
 }
