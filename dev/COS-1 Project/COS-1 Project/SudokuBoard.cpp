@@ -31,7 +31,7 @@ void SudokuBoard::displayBoard()
 	std::cout << "+-------+-------+-------+\n";
 }
 
-int SudokuBoard::getCell(int row, int col)
+int SudokuBoard::getCell(int row, int col) const
 {
 	return grid[row][col];
 }
