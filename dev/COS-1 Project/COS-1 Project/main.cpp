@@ -1,5 +1,4 @@
 #include <iostream>
-#include <limits>
 #include <string>
 #include <stdexcept>
 #include <ctime>
@@ -68,16 +67,7 @@ int main()
         std::cout << "6. Exit Game\n";
 
         choice = getIntegerInput("Please select an option: ");
-
-        if (std::cin.fail())
-        {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-            std::cout << "Invalid input. Please enter a number. \n";
-            continue;
-        }
-
+               
         if (choice == 1)
         {
             board.displayBoard();
@@ -104,63 +94,51 @@ int main()
                 column = getIntegerInput("Enter column (1-9): ");
             }
 
-            do
-            {
-                number = getIntegerInput("Enter number (0-9, 0 to erase): ");
+            number = getIntegerInput("Enter number (0-9, 0 to erase): ");
 
-                while (number < 0 || number > 9)
-                {
-                    std::cout << "Invalid number. Please enter a number 0-9.\n";
-                    number = getIntegerInput("Enter number (0-9): ");
-                }
+            while (number < 0 || number > 9)
+            {
+                std::cout << "Invalid number. Please enter a number 0-9.\n";
+                number = getIntegerInput("Enter number (0-9): ");
             }
+            
+           row = row - 1;
+           column = column - 1;
 
-            while (number < 0 || number>9);            
-
-            if (row < 1 || row > 9 || column < 1 || column > 9 || number < 0 || number > 9)
-            {
-                std::cout << "Invalid entry. Rows, columns, and numbers must be 0-9.\n";
-            }
-
-            else
-            {
-                row = row - 1;
-                column = column - 1;
-
-                if (puzzle.isFixed(row, column))
-                {
-                    std::cout << "You cannot change original number.\n";
-                }
+           if (puzzle.isFixed(row, column))
+           {
+              std::cout << "You cannot change original number.\n";
+           }
                 
-                else 
-                {
-                    if (number == 0)
-                    {
-                        board.setCell(row, column, number);
-                        std::cout << "Your number has been erased.\n";
-                    }
+           else 
+           {
+               if (number == 0)
+               {
+                   board.setCell(row, column, number);
+                   std::cout << "Your number has been erased.\n";
+               }
 
-                    else
-                    {
-                        board.setCell(row, column, number);
+               else
+               {
+                   board.setCell(row, column, number);
 
-                        if (checker.isValidMove(board, row, column, number))
-                        {
-                            std::cout << "Move accepted. No conflicts found.\n";
-                        }
+                   if (checker.isValidMove(board, row, column, number))
+                   {
+                       std::cout << "Move accepted. No conflicts found.\n";
+                   }
 
-                        else
-                        {
-                            std::cout << "The Checker Assistant found a conflict.\n";
-                        }
-                    }
-                    
-                    if (puzzle.isPuzzleCompleted(board, checker))
-                    {
-                        std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
-                    }
-                }                                              
-            }
+                   else
+                   {
+                       std::cout << "The Checker Assistant found a conflict.\n";
+                   }
+               }
+               
+               if (puzzle.isPuzzleCompleted(board, checker))
+               {
+                    std::cout << "COMPLETED!!! YAAAAYYYY!!!!\n";
+               }
+                                                             
+           }
         }
 
         else if (choice == 3)
