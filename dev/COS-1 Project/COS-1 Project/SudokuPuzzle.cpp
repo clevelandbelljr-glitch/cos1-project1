@@ -1,5 +1,7 @@
 #include "SudokuPuzzle.h"
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 
 void SudokuPuzzle::createPuzzle(SudokuBoard& board, int puzzleChoice)
 {
@@ -49,6 +51,8 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board, int puzzleChoice)
 	}
 }
 
+
+
 bool SudokuPuzzle::isFixed(int row, int col) const
 {
 	return fixedCells[row][col];
@@ -57,4 +61,74 @@ bool SudokuPuzzle::isFixed(int row, int col) const
 bool SudokuPuzzle::isPuzzleCompleted(const SudokuBoard& board, const SudokuChecker& checker)
 {
 	return checker.isBoardCompleted(board);
+}
+
+void SudokuPuzzle::savePuzzle(const SudokuBoard& board, int puzzleChoice) const
+{
+	std::ofstream file("sudoku_save.txt");
+
+	if (!file)
+	{
+		std::cout << "Unable to save puzzle.\n";
+		return;
+	}
+
+	file << puzzleChoice << "\n";
+
+	for (int row = 0; row < 9; row++)
+	{
+		for (int col = 0; col < 9; col++)
+		{
+			file << board.getCell(row, col) << " ";
+		}
+
+		file << "\n";
+	}
+
+	std::cout << "Puzzle save successfully.\n";
+
+}
+
+bool SudokuPuzzle::loadPuzzle(SudokuBoard& board, int& puzzleChoice)
+{
+	std::ifstream file("sudoku_save.txt");
+
+	if (!file)
+	{
+		return false;
+	}
+
+	int savedChoice;
+	file >> savedChoice;
+
+	if (!file || savedChoice < 0 || savedChoice > 1)
+	{
+		return false;
+	}
+
+	SudokuBoard originalBoard;
+	createPuzzle(originalBoard, savedChoice);
+
+	for (int row = 0; row < 9; row++)
+	{
+		for (int col = 0; col < 9; col++)
+		{
+			int number;
+
+			if (!(file >> number))
+			{
+				return false;
+			}
+
+			if (number < 0 || number > 9)
+			{
+				return false;
+			}
+
+			board.setCell(row, col, number);
+		}
+	}
+
+	puzzleChoice = savedChoice;
+	return true;
 }

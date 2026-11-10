@@ -1,6 +1,6 @@
 #include "SudokuChecker.h"
 
-bool SudokuChecker::isValidMove(const SudokuBoard& board, int row, int col, int number)
+bool SudokuChecker::isValidMove(const SudokuBoard& board, int row, int col, int number) const
 {
     if (row < 0 || row >= 9 || col < 0 || col >= 9)
     {

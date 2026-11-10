@@ -7,7 +7,7 @@
 #include "SudokuChecker.h"
 #include "SudokuPuzzle.h"
 
-int getIntegerInput(std::string prompt)
+int getIntegerInput(const std::string& prompt)
 {
     std::string input;
     int number;
@@ -79,7 +79,9 @@ int main()
         std::cout << "3. Check Puzzle Status\n";
         std::cout << "4. Reset Puzzle\n";
         std::cout << "5. Help / Instructions\n";
-        std::cout << "6. Exit Game\n";
+        std::cout << "6. Save Game\n";
+        std::cout << "7. Load Game\n";
+        std::cout << "8. Exit Game\n";
 
         choice = getIntegerInput("Please select an option: ");
                
@@ -144,7 +146,7 @@ int main()
 
                    else
                    {
-                       std::cout << "The Checker Assistant found a conflict.\n";
+                       std::cout << "The Checker Assistant found a conflict. You can change it.\n";
                    }
                }
                
@@ -187,8 +189,26 @@ int main()
             std::cout << "7. Use the Checker Assistant to check your moves.\n";
             std::cout << "8. Select Reset Puzzle to start over.\n";
         }
-        
+
         else if (choice == 6)
+        {
+            puzzle.savePuzzle(board, puzzleChoice);
+        }
+
+        else if (choice == 7)
+        {
+            if (puzzle.loadPuzzle(board, puzzleChoice))
+            {
+                std::cout << "Saved game loaded successfully.\n";
+            }
+
+            else
+            {
+                std::cout << "No saved game found of file is invalid.\n";
+            }
+        }
+        
+        else if (choice == 8)
         {
             std::cout << "Thanks for playing.\n";
         }
@@ -199,7 +219,7 @@ int main()
         }
     }
 
-    while (choice != 6);
+    while (choice != 8);
 
 
     return 0;
