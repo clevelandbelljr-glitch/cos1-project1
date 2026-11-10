@@ -8,12 +8,16 @@ SudokuBoard::SudokuBoard()
 
 void SudokuBoard::displayBoard() const
 {
+	std::cout << "    1 2 3   4 5 6   7 8 9\n";
+	
 	for (int row = 0; row < 9; row++)
 	{
 		if (row % 3 == 0)
 		{
-			std::cout << "+-------+-------+-------+\n";
+			std::cout << "  +-------+-------+-------+\n";
 		}
+
+		std::cout << row + 1 << " ";
 
 		for (int col = 0; col < 9; col++)
 		{
@@ -22,13 +26,21 @@ void SudokuBoard::displayBoard() const
 				std::cout << "| ";
 			}
 
-			std::cout << grid[row][col] << " ";
+			if (grid[row][col] == 0)
+			{
+				std::cout << ". ";
+			}
+			else
+			{
+				std::cout << grid[row][col] << " ";
+			}
+			
 		}		
 
 		std::cout << "|\n";
 	}
 
-	std::cout << "+-------+-------+-------+\n";
+	std::cout << "  +-------+-------+-------+\n";
 }
 
 int SudokuBoard::getCell(int row, int col) const
