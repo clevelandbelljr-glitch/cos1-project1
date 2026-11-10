@@ -6,7 +6,7 @@ SudokuBoard::SudokuBoard()
 	grid = std::vector<std::vector<int>>(9, std::vector<int>(9.0));
 }
 
-void SudokuBoard::displayBoard()
+void SudokuBoard::displayBoard() const
 {
 	for (int row = 0; row < 9; row++)
 	{

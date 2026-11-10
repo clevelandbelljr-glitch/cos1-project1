@@ -10,7 +10,7 @@ private:
 public:
 	
 	SudokuBoard();
-	void displayBoard();
+	void displayBoard() const;
 	int getCell(int row, int col) const;
 	void setCell(int row, int col, int number);
 };
