@@ -11,6 +11,6 @@ private:
 
 public:
 	void createPuzzle(SudokuBoard& board, int puzzleChoice);
-	bool isFixed(int row, int col);
-	bool isPuzzleCompleted(SudokuBoard& board, SudokuChecker& checker);
+	bool isFixed(int row, int col) const;
+	bool isPuzzleCompleted(const SudokuBoard& board, const SudokuChecker& checker);
 };

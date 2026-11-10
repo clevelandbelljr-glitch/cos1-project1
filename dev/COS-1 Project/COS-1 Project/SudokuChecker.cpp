@@ -44,7 +44,7 @@ bool SudokuChecker::isValidMove(const SudokuBoard& board, int row, int col, int 
     return true;
 }
 
-bool SudokuChecker::isBoardCompleted(const SudokuBoard& board)
+bool SudokuChecker::isBoardCompleted(const SudokuBoard& board) const
 {
 
     for (int row = 0; row < 9; row++)

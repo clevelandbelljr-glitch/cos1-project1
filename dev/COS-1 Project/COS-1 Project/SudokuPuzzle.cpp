@@ -49,12 +49,12 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board, int puzzleChoice)
 	}
 }
 
-bool SudokuPuzzle::isFixed(int row, int col)
+bool SudokuPuzzle::isFixed(int row, int col) const
 {
 	return fixedCells[row][col];
 }
 
-bool SudokuPuzzle::isPuzzleCompleted(SudokuBoard& board, SudokuChecker& checker)
+bool SudokuPuzzle::isPuzzleCompleted(const SudokuBoard& board, const SudokuChecker& checker)
 {
 	return checker.isBoardCompleted(board);
 }
