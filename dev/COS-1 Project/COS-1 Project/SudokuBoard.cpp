@@ -1,5 +1,6 @@
-#include "SudokuBoard.h"
 #include <iostream>
+#include "SudokuBoard.h"
+
 
 SudokuBoard::SudokuBoard()
 {
@@ -8,6 +9,12 @@ SudokuBoard::SudokuBoard()
 
 void SudokuBoard::displayBoard() const
 {
+	std::cout << "\n==== SUDOKU BOARD ====\n";
+	std::cout << ". = Empty cell\n";
+	std::cout << "Original numbers = Puzzle clues\n";
+	std::cout << "Other numbers = Your entries\n\n";
+	
+
 	std::cout << "    1 2 3   4 5 6   7 8 9\n";
 	
 	for (int row = 0; row < 9; row++)
@@ -30,11 +37,11 @@ void SudokuBoard::displayBoard() const
 			{
 				std::cout << ". ";
 			}
+			
 			else
 			{
 				std::cout << grid[row][col] << " ";
 			}
-			
 		}		
 
 		std::cout << "|\n";
