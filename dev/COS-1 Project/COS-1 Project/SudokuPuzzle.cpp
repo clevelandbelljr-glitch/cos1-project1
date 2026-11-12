@@ -89,8 +89,15 @@ void SudokuPuzzle::savePuzzle(const SudokuBoard& board, int puzzleChoice) const
 		file << "\n";
 	}
 
-	std::cout << "Puzzle save successfully.\n";
+	if (file)
+	{
+		std::cout << "Puzzle saved successfully.\n";
+	}
 
+	else
+	{
+		std::cout << "Error while saving puzzle.\n";
+	}
 }
 
 bool SudokuPuzzle::loadPuzzle(SudokuBoard& board, int& puzzleChoice)

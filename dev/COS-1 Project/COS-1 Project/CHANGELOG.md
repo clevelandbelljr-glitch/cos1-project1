@@ -34,3 +34,5 @@ Week 3 - Testing and Improvements
 	Rebuilt the project successfully after cleanup.
 	Refactored the createPuzzle() function to reduce repeated code when loading puzzle values and identifying original clues.
 	Tested both Sudoku puzzles after refactoring to confirm they still display correctly.
+	
+		
