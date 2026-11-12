@@ -7,7 +7,7 @@
 class SudokuPuzzle
 {
 private:
-	std::vector < std::vector<bool>> fixedCells;
+	std::vector<std::vector<bool>> fixedCells;
 
 public:
 	void createPuzzle(SudokuBoard& board, int puzzleChoice);

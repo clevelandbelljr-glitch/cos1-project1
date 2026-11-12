@@ -33,7 +33,7 @@ bool SudokuChecker::isValidMove(const SudokuBoard& board, int row, int col, int 
 
     for (int r = startRow; r < startRow + 3; r++)
     {
-        for (int c = startCol; c <startCol + 3; c++)
+        for (int c = startCol; c < startCol + 3; c++)
 
             if ((r != row || c != col) && board.getCell(r, c) == number)
             {
@@ -58,7 +58,7 @@ bool SudokuChecker::isBoardCompleted(const SudokuBoard& board) const
                 return false;
             }
 
-            for (int c = col+1; c < 9; c++)
+            for (int c = col + 1; c < 9; c++)
             { 
                 if (board.getCell(row, c) == number)
                 {

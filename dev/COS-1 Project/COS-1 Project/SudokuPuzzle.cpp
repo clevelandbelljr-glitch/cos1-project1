@@ -37,16 +37,20 @@ void SudokuPuzzle::createPuzzle(SudokuBoard& board, int puzzleChoice)
 	{
 		for (int col = 0; col < 9; col++)
 		{
+			int number;
+
 			if (puzzleChoice == 0)
 			{
-				board.setCell(row, col, puzzle[row][col]);
-				fixedCells[row][col] = (puzzle[row][col] != 0);
+				number = puzzle[row][col];
 			}
+
 			else
 			{
-				board.setCell(row, col, puzzle2[row][col]);
-				fixedCells[row][col] = (puzzle2[row][col] != 0);
+				number = puzzle2[row][col];
 			}
+
+			board.setCell(row, col, number);
+			fixedCells[row][col] = (number != 0);
 		}
 	}
 }

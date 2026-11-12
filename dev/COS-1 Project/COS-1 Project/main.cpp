@@ -40,7 +40,7 @@ int getIntegerInput(const std::string& prompt)
 
         catch (const std::out_of_range&)
         {
-            std::cout << "Number is to large. Please try again.\n";
+            std::cout << "Number is too large. Please try again.\n";
         }
     }
 }
@@ -52,9 +52,7 @@ int main()
 
     SudokuBoard board;
     
-    SudokuChecker checker;
-
-    
+    SudokuChecker checker;    
 
     SudokuPuzzle puzzle;
 
