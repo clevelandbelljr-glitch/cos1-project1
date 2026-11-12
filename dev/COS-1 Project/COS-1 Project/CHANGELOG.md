@@ -18,3 +18,17 @@ Week 2 - Usability  and Improvements
 	Added a welcome message and basic Sudoku instructions.
 	Improved menu wording and added reminders for players.
 	Built and tested the program after these changes.
+
+Week 3 - Testing and Improvements
+	Tested Sudoku puzzle completion detection.
+	Tested duplicate number detection in rows, columns, and 3x3 boxes.
+	Tested invalid letter input.
+	Tested invalid row, column, and number ranges.
+	Tested entering and erasing player numbers.
+	Tested that original puzzle clues remain protected.
+	Tested the Reset feature.
+	Tested saving and loading a game.
+	Tested the menu options and game flow.
+	Captured screenshots of program features and test results.
+	Removed temporary testing code after testing.
+	Rebuilt the project successfully after cleanup.

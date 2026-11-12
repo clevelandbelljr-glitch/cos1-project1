@@ -10,10 +10,8 @@ SudokuBoard::SudokuBoard()
 void SudokuBoard::displayBoard() const
 {
 	std::cout << "\n==== SUDOKU BOARD ====\n";
-	std::cout << ". = Empty cell\n";
-	std::cout << "Original numbers = Puzzle clues\n";
-	std::cout << "Other numbers = Your entries\n\n";
-	
+	std::cout << ". = Empty cell\n\n";
+		
 
 	std::cout << "    1 2 3   4 5 6   7 8 9\n";
 	

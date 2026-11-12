@@ -51,8 +51,10 @@ int main()
     srand(static_cast<unsigned int>(time(0)));
 
     SudokuBoard board;
-
+    
     SudokuChecker checker;
+
+    
 
     SudokuPuzzle puzzle;
 
@@ -81,7 +83,7 @@ int main()
         std::cout << "5. Help / Instructions\n";
         std::cout << "6. Save Game\n";
         std::cout << "7. Load Game\n";
-        std::cout << "8. Exit Game\n";
+        std::cout << "8. Exit Game\n\n";
 
         choice = getIntegerInput("Please select an option: ");
                
