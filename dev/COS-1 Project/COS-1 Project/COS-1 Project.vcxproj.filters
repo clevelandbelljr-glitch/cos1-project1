@@ -42,5 +42,6 @@
   <ItemGroup>
     <None Include="CHANGELOG.md" />
     <None Include="PROTOTYPE_DESIGN.md" />
+    <None Include="Milestone3.md" />
   </ItemGroup>
 </Project>
