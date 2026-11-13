@@ -151,10 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CHANGELOG.md" />
-    <None Include="Milestone3.md">
-      <SubType>
-      </SubType>
-    </None>
     <None Include="PROTOTYPE_DESIGN.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
