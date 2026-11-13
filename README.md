@@ -49,7 +49,14 @@ Next Steps: Before Week 3, I want to finish organizing my planning documents and
 
 ### Week 3
 
-Stay tuned, this stand up is coming soon...
+Overview:  
+This week I focused on testing, improving, and organizing my Sudoku game. I worked on saving and loading puzzles, checking for completed puzzles, resetting the board, and improving the way the game handles player entries. I also reviewed parts of my code and made improvements to reduce repeated code.
+
+Challenges: One challenge was making sure the saved game loaded correctly while still protecting the original puzzle numbers. I also had to test different situations, including invalid input, duplicate numbers, and changing or erasing player entries.
+
+Accomplishments: I'm proud that I successfully tested the main features of my game. Saving and loading, resetting puzzles, protecting original numbers, conflict detection, and input validation all worked as expected. I also became more comfortable working with vectors, references, and separating responsibilities between my classes. I documented my progress and testing results in GitHub.
+
+Next Steps: My next goal is to continue reviewing and improving my code, complete any remaining project requirements, and prepare my final documentation and submission. I also plan to review my GitHub project and make sure everything is ready for the final milestone.
 
 ### Week 4
 
